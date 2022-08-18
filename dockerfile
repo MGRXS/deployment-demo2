@@ -1,9 +1,9 @@
 FROM node:lts-alpine
 WORKDIR /usr/src/app
-COPY front/package*.json ./
+COPY package*.json ./
 RUN ls -l
 RUN npm install
-COPY front ./
+COPY . .
 RUN ls -l
 RUN npm run build
 COPY nodeServer.js dist/nodeServer.js
