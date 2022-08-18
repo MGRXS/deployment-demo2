@@ -1,30 +1,25 @@
-name: Build Containers
 
-on:
-  pull_request:
-    branches:
-      - master
-  push:
-    branches:
-      - master
-jobs:
-  build-container:
-    name: build container
-    runs-on: ubuntu-latest
-    steps:
-    - name: checkout code
-      uses: actions/checkout@v3
-    - name: Login to docker hub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
-    - name: build and push to docker hub
-      uses: docker/build-push-action@v3
-      with:
-        context: .
-        push: true
-        tags: maxgrxs/homepage:latest, maxgrxs/homepage:${{ github.run_number }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
