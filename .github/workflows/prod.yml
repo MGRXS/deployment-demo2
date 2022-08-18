@@ -1,3 +1,4 @@
+
 name: Build Containers
 
 on:
@@ -8,28 +9,21 @@ on:
     branches:
       - master
 jobs:
-  build-container:
-    name: build container
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: checkout code
-      uses: actions/checkout@v3
-    - name: Login to docker hub
-      uses: docker/login-action@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
+        repository: maxgrxs/homepage
         dockerfile: front/dockerfile
-    - name: build and push to docker hub
-      uses: docker/build-push-action@v3
-      with:
-        context: .
-        push: true
-        tags: maxgrxs/homepage:latest, maxgrxs/homepage:${{ github.run_number }}
-
-
-
-
+        tags: latest
 
 
 
