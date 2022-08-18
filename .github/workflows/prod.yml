@@ -15,7 +15,6 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        file: front/Dockerfile
         push: true
         tags: maxgrxs/deployment-demo:latest, maxgrxs/deployment-demo:${{ github.run_number }}
 
