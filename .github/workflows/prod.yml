@@ -14,7 +14,7 @@ jobs:
     - name: build and push to docker hub
       uses: docker/build-push-action@v3
       with:
-        context: .
+        context: front
         push: true
         tags: maxgrxs/deployment-demo:latest, maxgrxs/deployment-demo:${{ github.run_number }}
 
