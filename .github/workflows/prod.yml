@@ -1,5 +1,3 @@
-name: Build Containers
-
 on:
   pull_request:
     branches:
@@ -19,57 +17,10 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
-        dockerfile: front/dockerfile
     - name: build and push to docker hub
       uses: docker/build-push-action@v3
       with:
         context: .
         push: true
-        tags: maxgrxs/homepage:latest, maxgrxs/homepage:${{ github.run_number }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        tags: maxgrxs/deployment-demo:latest, maxgrxs/deployment-demo:${{ github.run_number }}
 
