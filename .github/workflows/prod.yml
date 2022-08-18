@@ -19,12 +19,20 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
+        dockerfile: front/Dockerfile
     - name: build and push to docker hub
       uses: docker/build-push-action@v3
       with:
         context: .
         push: true
         tags: maxgrxs/homepage:latest, maxgrxs/homepage:${{ github.run_number }}
+
+
+
+
+
+
+
 
 
 
