@@ -9,4 +9,4 @@ RUN npm run build
 COPY nodeServer.js dist/nodeServer.js
 WORKDIR /usr/src/app/dist
 EXPOSE 8080
-CMD [ "node", "noderServer.js"]
+CMD [ "node", "nodeServer.js"]
